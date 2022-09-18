@@ -27,7 +27,7 @@ void print_to_98(int n)
 				if (i != 98)
 					printf("%i, ", i);
 				else
-					printf("%", i);
+					printf("%i", i);
 			}
 		}
 		else
