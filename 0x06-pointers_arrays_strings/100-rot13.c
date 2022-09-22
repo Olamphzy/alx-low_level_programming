@@ -2,28 +2,25 @@
 #include <stdio.h>
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * rot13 - a function that encodes a string using rot13.
+ * @s: An input string to encode using rot13
+ * Return: An encode string
  */
-int main(void)
+char *rot13(char *s)
 {
-	char s[] = "ROT13 (\"totate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n";
-	char *p;
+	int i = 0;
 
-	p = rot13(s);
-	printf("%s", p);
-	printf("-----------------------------------\n");
-	printf("%s", s);
-	printf("-----------------------------------\n");
-	p = rot13(s);
-	printf("%s", p);
-	printf("-----------------------------------\n");
-	printf("%s", s);
-	printf("-----------------------------------\n");
-	p = rot13(s);
-	printf("%s", p);
-	printf("-----------------------------------\n");
-	printf("%s", s);
-	return (0);
+	while (s[i] != '\0')
+	{
+		while ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
+		{
+			if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
+				s[i] += 13;
+			else
+				s[i] -= 13;
+			i++;
+		}
+		i++;
+	}
+	return (s);
 }
